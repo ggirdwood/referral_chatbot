@@ -1,0 +1,30 @@
+[
+  {
+    "referring_hospital": "Barnet Hospital",
+    "specialty": "Cardiology",
+    "receiving_hospital": "Great Ormond Street",
+    "referral_method": "Phone and email",
+    "instructions": "Telephone discussion with Registrar - #6115 then extension 1632\nImmediately send GOSH Cardiology Referral Form (https://www.gosh.nhs.uk/wards-and-departments/departments/clinical-specialties/cardiology-information-parents-and-visitors/refer-patient-cardiology-department/) to gos-tr.PaedCardReferral@nhs.net "
+  },
+  {
+    "referring_hospital": "Barnet Hospital",
+    "specialty": "Dermatology",
+    "receiving_hospital": "Great Ormond Street",
+    "referral_method": "Secure email",
+    "instructions": "Email to gos-tr.Dermatology-Gosh@nhs.net with patient summary and imaging"
+  },
+  {
+    "referring_hospital": "Barnet Hospital",
+    "specialty": "Ophthalmology",
+    "receiving_hospital": "Royal Free Hospital",
+    "referral_method": "Secure email",
+    "instructions": "rf.eyecasualty@nhs.net"
+  },
+  {
+    "referring_hospital": "Barnet Hospital",
+    "specialty": "Plastic Surgery",
+    "receiving_hospital": "Royal Free Hospital",
+    "referral_method": "Pathpoint referral and then phone",
+    "instructions": "Complete PathPoint E-referral https://royalfree.openmedical.thirdparty.nhs.uk/ and then bleep 2330"
+  }
+]

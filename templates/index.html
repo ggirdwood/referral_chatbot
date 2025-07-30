@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Referral Chatbot</title>
+    <!-- Bootstrap CSS CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <style>
+        body {
+            margin: 2rem;
+        }
+        .result {
+            margin-top: 1.5rem;
+            padding: 1rem;
+            border: 1px solid #ddd;
+            background-color: #f8f9fa;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="my-4">Referral Information</h1>
+        
+        <form method="POST" action="/">
+            <div class="mb-3">
+                <label for="referring_hospital" class="form-label">Referring Hospital:</label>
+                <select name="referring_hospital" id="referring_hospital" class="form-select" required>
+                    <option value="" disabled selected>Select a hospital</option>
+                    {% for hospital in referring_hospitals %}
+                        <option value="{{ hospital }}" {% if hospital == selected_referring %}selected{% endif %}>
+                            {{ hospital }}
+                        </option>
+                    {% endfor %}
+                </select>
+            </div>
+
+            <div class="mb-3">
+                <label for="speciality" class="form-label">Speciality:</label>
+                <select name="speciality" id="speciality" class="form-select" required>
+                    <option value="" disabled selected>Select a speciality</option>
+                    {% for speciality in specialities %}
+                        <option value="{{ speciality }}" {% if speciality == selected_speciality %}selected{% endif %}>
+                            {{ speciality }}
+                        </option>
+                    {% endfor %}
+                </select>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Get Referral Details</button>
+        </form>
+
+        {% if receiving_hospital %}
+            <div class="result mt-4">
+                <h5>Referral Details</h5>
+                <p><strong>Receiving Hospital:</strong> {{ receiving_hospital }}</p>
+                <p><strong>Referral Method:</strong> {{ referral_method }}</p>
+                <p><strong>Instructions:</strong><br> {{ instructions | replace('\n', '<br>') | safe }}</p>
+            </div>
+        {% endif %}
+    </div>
+</body>
+</html>
