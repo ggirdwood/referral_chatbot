@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request
 import json
-
+#this is the app.py file for the Flask application
 app = Flask(__name__)
 
 def load_referral_data():
