@@ -1,12 +1,12 @@
 import gspread
 import json
 import re
+import os
 from oauth2client.service_account import ServiceAccountCredentials
 
 # === CONFIGURE ===
 SPREADSHEET_ID = "1_xqgUyAc3vbKc5vWZXLtccVkhweC8R-4nHZhivB_xu0"  # your Google Sheet ID
 WORKSHEET_NAME = "Hospital Referral Mapping"
-CREDS_FILE = "google-sheets-creds.json"  # path to your creds JSON file
 
 def clean_key(key):
     """Clean column names to make them safe for JSON keys"""
@@ -24,7 +24,8 @@ def main():
     scope = ["https://spreadsheets.google.com/feeds",
              "https://www.googleapis.com/auth/drive"]
 
-    creds = ServiceAccountCredentials.from_json_keyfile_name(CREDS_FILE, scope)
+    creds_dict = json.loads(os.environ["GOOGLE_SHEETS_CREDS"])
+    creds = ServiceAccountCredentials.from_json_keyfile_dict(creds_dict, scope)
     client = gspread.authorize(creds)
 
     print("📄 Opening worksheet...")
@@ -51,3 +52,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
